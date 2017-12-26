@@ -1,0 +1,13 @@
+<h2>Post Page</h2>
+<!--Standard code -->
+<%= link_to "NEW", "/posts/new" %>
+<!-- <a href="/posts/new">[NEW]</a> -->
+
+<%@post.each do |post| %>
+  <div>
+    <%= link_to post.title, post %><br>
+    <!-- <%= link_to "#{post.title}", "/posts/#{post.id}"%><br> -->
+    <!-- post.title 자체가 string이라 괄호를 생략해도 된다.
+    <%= link_to post.title, "/posts/show/#{post.id}"%><br> -->
+  </div>
+<% end %>

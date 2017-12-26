@@ -1,0 +1,7 @@
+<h2>Show post</h2>
+  <h2>No.<%=@post.id%></h2>
+  <p>TITLE: <%=@post.title%></p>
+  <p>CONTENT: <%=@post.content%></p>
+  <!-- <a href="/posts/edit/<%=@post.id %>">[EDIT]</a> -->
+  <%= link_to "[EDIT]", "/posts/#{@post.id}/edit" %>
+  <%= link_to "[DELETE]","/posts/#{@post.id}", method: "delete" %>

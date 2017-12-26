@@ -1,0 +1,19 @@
+<h2>New posts</h2>
+<!-- standard code -->
+<!-- <form action="/posts/create">
+  TITLE : <input type="text" name="title">
+  CONTENT : <input type="text" name="content">
+  <input type="submit" value="SUBMIT">
+</form> -->
+
+<!--Using helper -->
+  <%= form_tag do %>
+    Form contents
+  <% end %>
+
+<!-- form tag는 두개의 인자를 받는다. 어디로 보내줄지 / 어떤 메소드로 보내줄지 -->
+  <%= form_tag("/posts", method: "post") do %>
+    TITLE:   <%= text_field_tag("post[title]") %><br>
+    CONTENT: <%= text_field_tag("post[content]") %><br>
+    <%= submit_tag("WRITE") %>
+  <% end %>

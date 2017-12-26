@@ -1,0 +1,21 @@
+<h2>Edit posts</h2>
+<!-- standard code
+<form action="/posts/update/<%=@post.id%>">
+  TITLE : <input type="text" name="title" value = "<%=@post.title %>">
+  CONTENT : <input type="text" name="content" value = "<%=@post.content %>">
+  <input type="submit" value="WRITE">
+</form> -->
+
+<!--Using helper -->
+  <%= form_tag do %>
+    Form contents
+  <% end %>
+
+<!-- form tag는 두개의 인자를 받는다. 어디로 보내줄지 / 어떤 메소드로 보내줄지 -->
+  <%= form_tag("/posts/#{@post.id}", method: "put") do %>
+    <!-- TITLE:   <%= text_field_tag(:title, @post.title)%><br>
+    CONTENT: <%= text_field_tag(:content,@post.content, size: 50)%><br> -->
+    TITLE:   <%= text_field_tag("post[title]", @post.title)%><br>
+    CONTENT: <%= text_field_tag("post[content]", @post.content, size: 50)%><br>
+    <%= submit_tag("EDIT") %>
+  <% end %>
